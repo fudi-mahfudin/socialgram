@@ -1,5 +1,5 @@
 # Socialgram
-
+![Socialgram](preview-app.png)
 Socialgram is Instagram clone project.
 
 ## 🚀 Technologies
