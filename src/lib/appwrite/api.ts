@@ -3,6 +3,10 @@ import { ID, Query } from "appwrite";
 import { INewPost, INewUser, IUpdatePost } from "@/types";
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
 
+// ======================================================
+// AUTH
+// ======================================================
+
 export async function createUserAccount(user: INewUser) {
   try {
     const newAccount = await account.create(
@@ -93,6 +97,11 @@ export async function signOutAccount() {
     console.log(error);
   }
 }
+
+
+// ======================================================
+// POST
+// ======================================================
 
 export async function createPost(post: INewPost) {
   try {
@@ -370,6 +379,10 @@ export async function searchPosts (searchTerm: string) {
     console.log(error);
   }
 }
+
+// ======================================================
+// USER
+// ======================================================
 
 export async function getUsers (limit?: number) {
   const queries: any[] = [Query.orderDesc("$createdAt")];

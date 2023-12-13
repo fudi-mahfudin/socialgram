@@ -4,6 +4,10 @@ import { createPost, createUserAccount, deletePost, deleteSavedPost, getCurrentU
 import { QUERY_KEYS } from "./queryKeys";
 
 
+// ======================================================
+// AUTH QUERIES
+// ======================================================
+
 export const useCreateUserAccount = () => {
   return useMutation({
     mutationFn: (user: INewUser) => createUserAccount(user),
@@ -24,6 +28,10 @@ export const useSignOutAccount = () => {
     mutationFn: signOutAccount
   })
 }
+
+// ======================================================
+// POST QUERIES
+// ======================================================
 
 export const useCreatePost = () => {
   const queryClient = useQueryClient();
@@ -105,13 +113,6 @@ export const useDeleteSavedPost = () => {
   })
 }
 
-export const useGetCurrentUser = () => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.GET_CURRENT_USER],
-    queryFn: getCurrentUser
-  })
-}
-
 export const useGetPostById = (postId: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_POST_BY_ID, postId],
@@ -167,6 +168,17 @@ export const useSearchPosts = (searchTerm: string) => {
     queryKey: [QUERY_KEYS.SEARCH_POSTS, searchTerm],
     queryFn: () => searchPosts(searchTerm),
     enabled: !!searchTerm,
+  })
+}
+
+// ======================================================
+// USER QUERIES
+// ======================================================
+
+export const useGetCurrentUser = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_CURRENT_USER],
+    queryFn: getCurrentUser
   })
 }
 
