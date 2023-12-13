@@ -14,6 +14,15 @@ export type IUser = {
   bio: string;
 }
 
+export type IUpdateUser = {
+  userId: string;
+  name: string;
+  bio: string;
+  imageId: string;
+  imageUrl: URL | string;
+  file: File[];
+}
+
 export type IContextType = {
   user: IUser;
   isLoading: boolean;
